@@ -1,12 +1,12 @@
 import React from 'react';
-import List from './ItemList';
+import ItemsList from './ItemsList';
 
 
 const App = () => {
     return (
         <div>
             <h1>PokéBall Store</h1>
-            <List />
+            <ItemsList />
         </div>
     )
 };

@@ -1,5 +1,12 @@
 import { combineReducers } from 'redux';
 
-export default combineReducers ({
-    replaceMe: () => 'placeholder'
+const itemsListReducer = (itemsList = [], action)=> {
+    if(action.type === 'FETCH_ITEMS'){
+        return itemsList = [...action.payload.results];
+    }
+    return itemsList;
+}
+
+export default combineReducers({
+    itemsList: itemsListReducer
 });
