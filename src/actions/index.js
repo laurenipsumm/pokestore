@@ -1,6 +1,6 @@
-export const itemList = () => {
+export const fetchItems = () => {
     return {
-        type: 'replace me',
-        payload: 'hi'
+        type: 'FETCH_ITEMS',
+        payload: 'replace me'
     };
 };
