@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { fetchItems } from '../actions';
 
@@ -12,18 +13,19 @@ class ItemsList extends React.Component {
         return this.props.itemsList.map((item)=> {
             console.log(item);
             return (
-                <div>
-                {item.name}
-                </div>
-                
+                <li key={item.name}>
+                <Link to={location=> ({...location, pathname: `?${item.name}`})}>{item.name}</Link>
+                </li> 
             );
         });
     }
 
 
     render(){
-        console.log(this.props.itemsList);
-        return <div>{ this.renderItems()}</div>;
+        console.log(this.renderItems());
+        return <ul>
+        { this.renderItems()}
+        </ul>;
     }
 }
 

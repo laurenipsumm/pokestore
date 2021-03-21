@@ -7,6 +7,15 @@ const itemsListReducer = (itemsList = [], action)=> {
     return itemsList;
 }
 
+// Item details reducer
+const selectedItemDetailsReducer = (selectedItemDetails = {}, action) => {
+    if(action.type === 'FETCH_ITEM_DETAILS'){
+        return selectedItemDetails = {...action.payload.data};
+    }
+    return selectedItemDetails;
+}
+
 export default combineReducers({
-    itemsList: itemsListReducer
+    itemsList: itemsListReducer,
+    selectedItemDetails: selectedItemDetailsReducer
 });

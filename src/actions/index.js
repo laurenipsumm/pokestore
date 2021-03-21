@@ -9,3 +9,13 @@ export const fetchItems = () => {
         });
     }
 };
+
+export const fetchItemDetails = () => {
+    return async (dispatch) => {
+        const res = await axios.get('https://pokeapi.co/api/v2/item/1');
+        dispatch({
+            type: 'FETCH_ITEM_DETAILS',
+            payload: res
+        });
+    }
+}
