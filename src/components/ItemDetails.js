@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom';
 import { fetchItemDetails } from '../actions';
 
 class ItemDetails extends React.Component {
+
     componentDidMount () {
-        // call action creator to fetch item details
-        this.props.fetchItemDetails();
+        this.props.fetchItemDetails(this.props.location.state.item);
     }
 
     renderItemDetails() {
-        if(this.props.selectedItemDetails.name){
+        if(this.props.selectedItemDetails.name === this.props.location.state.item){
             return (
                 <div>
                     <img src={this.props.selectedItemDetails.sprites.default} alt="master ball pokéball"/>

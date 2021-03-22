@@ -14,12 +14,18 @@ class ItemsList extends React.Component {
             console.log(item);
             return (
                 <li key={item.name}>
-                <Link to={location=> ({...location, pathname: `?${item.name}`})}>{item.name}</Link>
+                <Link to={{
+                    pathname: `?${item.name}`,
+                    state: {
+                        item: `${item.name}`
+                    }
+                }}>
+                 {item.name} 
+                 </Link>
                 </li> 
             );
         });
     }
-
 
     render(){
         console.log(this.renderItems());

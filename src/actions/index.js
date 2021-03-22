@@ -10,9 +10,9 @@ export const fetchItems = () => {
     }
 };
 
-export const fetchItemDetails = () => {
+export const fetchItemDetails = (urlPath) => {
     return async (dispatch) => {
-        const res = await axios.get('https://pokeapi.co/api/v2/item/1');
+        const res = await axios.get(`https://pokeapi.co/api/v2/item/${urlPath}`);
         dispatch({
             type: 'FETCH_ITEM_DETAILS',
             payload: res
