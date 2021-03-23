@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { fetchItems } from '../actions';
+import Header from './Header';
 
 class ItemsList extends React.Component {
     componentDidMount(){
@@ -11,7 +12,6 @@ class ItemsList extends React.Component {
 
     renderItems = ()=> {
         return this.props.itemsList.map((item)=> {
-            console.log(item);
             return (
                 <li key={item.name}>
                 <Link to={{
@@ -28,10 +28,15 @@ class ItemsList extends React.Component {
     }
 
     render(){
-        console.log(this.renderItems());
-        return <ul>
-        { this.renderItems()}
-        </ul>;
+        console.log(this.props.history);
+        return (
+        <div>
+            <Header history={this.props.history}/>
+            <ul>
+                { this.renderItems()}
+            </ul>
+        </div>
+        );
     }
 }
 

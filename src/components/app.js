@@ -8,7 +8,6 @@ import ItemDetails from './ItemDetails';
 const App = () => {
     return (
         <div>
-            <h1>PokéBall Store</h1>
             <BrowserRouter>
                 <Switch>
                     <Route path='/:id' component={ItemDetails} /> 
