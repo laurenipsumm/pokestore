@@ -1,4 +1,7 @@
 import React, {useState} from 'react';
+import { connect } from 'react-redux';
+
+import { fetchQueryItems } from '../actions';
 
 const SearchBar = (props) => {
     const [term, setTerm] = useState('');
@@ -8,9 +11,11 @@ const SearchBar = (props) => {
     }
 
     const onFormSubmit = (event) =>{
-        // hmmm maybe don't prevent default
-        // event.preventDefault();
-
+        event.preventDefault();
+        props.history.push({
+            search: "?" + term
+        });
+        props.fetchQueryItems(term);
     }
 
     return (
@@ -22,4 +27,6 @@ const SearchBar = (props) => {
     )
 }
 
-export default SearchBar;
+
+
+export default connect(null, { fetchQueryItems })(SearchBar);

@@ -28,7 +28,6 @@ class ItemsList extends React.Component {
     }
 
     render(){
-        console.log(this.props.history);
         return (
         <div>
             <Header history={this.props.history}/>

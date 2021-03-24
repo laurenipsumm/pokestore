@@ -4,6 +4,9 @@ const itemsListReducer = (itemsList = [], action)=> {
     if(action.type === 'FETCH_ITEMS'){
         return itemsList = [...action.payload.results];
     }
+    if(action.type === 'FETCH_QUERY_ITEMS'){
+        return itemsList = [...action.payload];
+    }
     return itemsList;
 }
 
